@@ -7,6 +7,8 @@ defmodule Graffinite.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: "Get exchange rates from National Bank of Poland.",
+     package: package,
      deps: deps]
   end
 
@@ -32,6 +34,14 @@ defmodule Graffinite.Mixfile do
       {:decimal, "~> 1.1.0"},
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.0"}
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: ["Adam Niedzielski"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/adamniedzielski/graffinite"}
     ]
   end
 end
