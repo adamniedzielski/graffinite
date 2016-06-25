@@ -1,4 +1,4 @@
-defmodule GraffiniteTest do
+defmodule BasicTest do
   use ExUnit.Case
 
   test "get currency rate for a business day" do

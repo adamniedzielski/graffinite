@@ -1,10 +1,10 @@
-defmodule GraffiniteAllCurrenciesTest do
+defmodule AllCurrenciesTest do
   use ExUnit.Case, async: true
 
   setup do
     date = %Date{day: 2, month: 6, year: 2016}
-    {:ok, 
-      currencies: [ 
+    [
+      currencies: [
         {:AUD, Decimal.new(2.8320)},
         {:THB, Decimal.new(0.1101)},
         {:BRL, Decimal.new(1.0928)},
@@ -40,18 +40,15 @@ defmodule GraffiniteAllCurrenciesTest do
         {:JPY, Decimal.new(0.035962)},
         {:CNY, Decimal.new(0.5957)},
         {:XDR, Decimal.new(5.5168)},
-      ], 
-      date: date 
-    }
+      ],
+      date: date
+    ]
   end
 
   test "get all currency rates for a defined date", context do
-    # IO.puts("Rates for date: #{Calendar.Strftime.strftime!(context.date, "%F")}")
     Enum.each(context.currencies, fn({key, value}) ->
-      # IO.puts("1 #{key} => #{value} PLN")
       result = Graffinite.get_rate(context.date, key)
       assert result == value
     end)
   end
-
 end
