@@ -21,7 +21,7 @@ mix deps.get
 ## Usage
 
 ```elixir
-date = %Calendar.Date{day: 2, month: 6, year: 2016}
+date = %Date{day: 2, month: 6, year: 2016}
 Graffinite.get_rate(date, "GBP")
 # #Decimal<5.6614>
 ```
@@ -29,7 +29,7 @@ Graffinite.get_rate(date, "GBP")
 If a rate is not available for a given day (because it's Sunday or a public holiday) it returns the previous available rate.
 
 ```elixir
-date = %Calendar.Date{day: 12, month: 6, year: 2016}
+date = %Date{day: 12, month: 6, year: 2016}
 Graffinite.get_rate(date, "GBP")
 # #Decimal<5.5662> (rate from 2016-06-10 because 2016-06-12 is Sunday)
 ```

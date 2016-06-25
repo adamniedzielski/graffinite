@@ -2,7 +2,7 @@ defmodule GraffiniteAllCurrenciesTest do
   use ExUnit.Case, async: true
 
   setup do
-    date = %Calendar.Date{day: 2, month: 6, year: 2016}
+    date = %Date{day: 2, month: 6, year: 2016}
     {:ok, 
       currencies: [ 
         {:AUD, Decimal.new(2.8320)},

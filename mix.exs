@@ -3,8 +3,8 @@ defmodule Graffinite.Mixfile do
 
   def project do
     [app: :graffinite,
-     version: "0.1.0",
-     elixir: "~> 1.2",
+     version: "0.2.0",
+     elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      description: "Get exchange rates from National Bank of Poland.",
@@ -30,7 +30,7 @@ defmodule Graffinite.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:calendar, "~> 0.14.0"},
+      {:calendar, "~> 0.16"},
       {:decimal, "~> 1.1.0"},
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.0"}
