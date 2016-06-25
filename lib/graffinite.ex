@@ -5,7 +5,7 @@ defmodule Graffinite do
   @number_of_days_back 30
 
   def get_rate(date, currency) do
-    case build_url(date, currency) |> HTTPoison.get do
+    case date |> build_url(currency) |> HTTPoison.get do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         Poison.decode!(body)["rates"]
           |> List.last
