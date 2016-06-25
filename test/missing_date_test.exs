@@ -3,7 +3,7 @@ defmodule MissingDateTest do
 
   test "get currency rate for non-existing date" do
     date = %Date{day: 1, month: 1, year: 1900}
-    assert_raise MatchError, fn ->
+    assert_raise Graffinite.MissingRateError, fn ->
       Graffinite.get_rate(date, "GBP")
     end
   end
