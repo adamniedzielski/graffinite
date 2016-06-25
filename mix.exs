@@ -33,7 +33,8 @@ defmodule Graffinite.Mixfile do
       {:calendar, "~> 0.16"},
       {:decimal, "~> 1.1.0"},
       {:httpoison, "~> 0.8.0"},
-      {:poison, "~> 2.0"}
+      {:poison, "~> 2.0"},
+      {:credo, "~> 0.4", only: [:dev, :test]}
     ]
   end
 
