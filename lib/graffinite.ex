@@ -5,12 +5,15 @@ defmodule Graffinite do
   @number_of_days_back 30
 
   def get_rate(date, currency) do
+    get_rate_with_date(date, currency)[:rate]
+  end
+
+  def get_rate_with_date(date, currency) do
     case date |> build_url(currency) |> HTTPoison.get do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         Poison.decode!(body)["rates"]
           |> List.last
-          |> Map.get("mid")
-          |> Decimal.new
+          |> process_last_rate
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         raise MissingRateError
     end
@@ -27,5 +30,9 @@ defmodule Graffinite do
 
   defp format_date(date) do
     Calendar.Strftime.strftime!(date, "%F")
+  end
+
+  defp process_last_rate(%{"mid" => rate, "effectiveDate" => date}) do
+    [rate: Decimal.new(rate), date: Date.from_iso8601!(date)]
   end
 end
