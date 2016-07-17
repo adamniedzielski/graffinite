@@ -31,8 +31,8 @@ defmodule Graffinite.Mixfile do
   defp deps do
     [
       {:calendar, "~> 0.16"},
-      {:decimal, "~> 1.1.0"},
-      {:httpoison, "~> 0.8.0"},
+      {:decimal, "~> 1.1"},
+      {:httpoison, "~> 0.8"},
       {:poison, "~> 2.0"},
       {:credo, "~> 0.4", only: [:dev, :test]}
     ]
