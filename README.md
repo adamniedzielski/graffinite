@@ -8,7 +8,7 @@ First, add graffinite to your mix.exs dependencies:
 
 ```elixir
 def deps do
-  [{:graffinite, "~> 0.3"}]
+  [{:graffinite, "~> 0.4"}]
 end
 ```
 
